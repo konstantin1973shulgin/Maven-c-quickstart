@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class PageObjectTest extends BaseTest {
 
     @Test
-    void loginInCrmWithPageObjTest() throws InterruptedException {
+    void loginInCrmWithPageObjTest() {
         driver.get("https://crm.geekbrains.space/");
         new LoginPage(driver)
                 .fillInputLogin("Applanatest1")
@@ -15,20 +15,19 @@ public class PageObjectTest extends BaseTest {
                 .clickLoginButton()
                 .navigationMenu.openNavigationMenuItem("Проекты");
 
-        new ExpensesSubMenu(driver).goToExpensesAllProjects();
+        new ProjecSubMenu(driver).goToExpensesAllProjects();
 
-        new ExpensesAllProgects(driver)
-                .createExpense()
+        new AllProjects(driver).createExpense()
                 .fillName("test")
-                /*.selectBusinessUnit("Укажите организацию")
-               /* .selectExpenditure("v2007")
-              /*  .selectCurrency("Доллар США")
-                .fillSumPlan("1000")
-                .selectDatePlan("20")
-                .saveAndCloseButton.click()*/;
+                .company("v2007")
+                .contact("Васильев Василий")
+                .fillPriority("Средний")
+                .fillFinanceSource("Внутреннее")
+                .fillBusinessUnit("Research & Development")
+                .fillCurator("Applanatest Applanatest Applanatest")
+                .fillRp("Applanatest Applanatest Applanatest")
+                .fillManagers("Юзеров Юзер")
 
-        Thread.sleep(10000);
-
-
+                .saveAndCloseButton.click();
     }
 }
