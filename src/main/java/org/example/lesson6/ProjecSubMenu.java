@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ExpensesSubMenu extends BaseView {
-    public ExpensesSubMenu(WebDriver driver) {
+public class ProjecSubMenu extends BaseView {
+    public ProjecSubMenu(WebDriver driver) {
         super(driver);
     }
 
@@ -18,6 +18,6 @@ public class ExpensesSubMenu extends BaseView {
     public void goToExpensesAllProjects() {
         allProjectsMenuitem.click();
         webDriverWait.until(
-                ExpectedConditions.presenceOfElementLocated(By.xpath(ExpensesAllProgects.createExpenseXpathLocator)));
+                ExpectedConditions.presenceOfElementLocated(By.xpath(AllProjects.createAllProjectsXpathLocator)));
     }
 }
